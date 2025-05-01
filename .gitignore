@@ -1,0 +1,32 @@
+# Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment files
+.env
+.venv
+env/
+venv/
+ENV/
+
+# Logs
+logs/*.log
+logs/previous_alerts.json
+
+# Debug files
+debug_*.html
+html_sample_*.html
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# VS Code settings
+.vscode/
+
+# Other
+*.bak
+*.swp
+.DS_Store
