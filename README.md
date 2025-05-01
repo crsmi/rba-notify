@@ -2,6 +2,10 @@
 
 This program monitors the eBird Rare Bird Alert system for specified counties and sends notifications when new rare bird sightings are reported. Currently configured for Portage County, Wisconsin, but easily extensible to monitor additional counties.
 
+## Project Development
+
+This project was developed through "vibe coding" using GitHub Copilot in agent mode. The design, implementation, and documentation were created collaboratively with GitHub's AI assistant.
+
 ## Features
 
 - Automatically checks for new rare bird alerts at regular intervals
