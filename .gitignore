@@ -26,6 +26,9 @@ build/
 # VS Code settings
 .vscode/
 
+# Research notebooks and data
+research/
+
 # Other
 *.bak
 *.swp

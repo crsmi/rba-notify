@@ -32,5 +32,9 @@ ENABLE_DISCORD_NOTIFICATIONS = True
 # How often to check for updates (in minutes)
 CHECK_INTERVAL = 1
 
+# Control whether existing alerts trigger notifications on startup
+# When False, only new alerts after the program starts will trigger notifications
+NOTIFY_ON_STARTUP = False
+
 # File to store previous alerts to detect new ones
 DATA_STORAGE_FILE = "logs/previous_alerts.json"

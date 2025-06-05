@@ -57,6 +57,7 @@ Edit `config/config.py` to customize the application behavior:
 - `CHECK_INTERVAL`: How often to check for updates (in minutes)
 - `ENABLE_TEXT_NOTIFICATIONS`: Set to `True` or `False` to enable/disable text notifications
 - `ENABLE_DISCORD_NOTIFICATIONS`: Set to `True` or `False` to enable/disable Discord notifications
+- `NOTIFY_ON_STARTUP`: When set to `False`, existing alerts found during the first run will be recorded but won't trigger notifications. Only new alerts that appear after the application starts will send notifications. Set to `True` to receive notifications for all alerts, including existing ones at startup.
 
 ### Adding More Counties
 
@@ -89,9 +90,16 @@ To monitor additional counties:
   ```
 
 This will:
-1. Check for new alerts immediately
-2. Schedule regular checks based on the configured interval
-3. Log all activity to the `logs` directory
+1. When run from an interactive terminal:
+   - Show a summary of any new alerts found at startup
+   - Allow you to choose whether to send notifications for these alerts:
+     - `(y)es`: Send notifications for all alerts
+     - `(n)o`: Skip these alerts entirely
+     - `(s)ilent record`: Record the alerts without sending notifications
+2. When run non-interactively or as a service:
+   - Uses the `NOTIFY_ON_STARTUP` configuration option to determine startup notification behavior
+3. Schedule regular checks based on the configured interval
+4. Log all activity to the `logs` directory
 
 ## Logs
 
