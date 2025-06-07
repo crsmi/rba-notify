@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  ebird-rba:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ebird-rba
+    # Always restart container unless manually stopped - ensures reboot recovery
+    restart: unless-stopped
+    volumes:
+      # Mount the logs directory for persistent storage
+      - ebird_data:/app/logs
+      # Mount the .env file for credentials
+      - ./config/.env:/app/config/.env:ro
+    
+    # Configuration through environment variables - easy to set in Portainer
+    environment:
+      - CHECK_INTERVAL=15
+      - NOTIFY_ON_STARTUP=false
+      - ENABLE_TEXT_NOTIFICATIONS=false
+      - ENABLE_DISCORD_NOTIFICATIONS=true
+      # Uncomment and set these for SMS notifications
+      # - TWILIO_ACCOUNT_SID=your_sid_here
+      # - TWILIO_AUTH_TOKEN=your_token_here
+
+volumes:
+  # Named volume for persistent data storage
+  ebird_data:

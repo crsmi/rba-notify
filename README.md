@@ -6,6 +6,14 @@ This program monitors the eBird Rare Bird Alert system for specified counties an
 
 This project was developed through "vibe coding" using GitHub Copilot in agent mode. The design, implementation, and documentation were created collaboratively with GitHub's AI assistant.
 
+## Deployment Options
+
+You can run this application:
+1. Directly using Python (see Setup section below)
+2. Using Docker (see [Docker Setup](DOCKER.md) for container deployment)
+3. On Ubuntu Server (see [Ubuntu Server Setup](UBUNTU.md) for specific instructions)
+4. Using Portainer (see [Portainer Setup](PORTAINER.md) for deployment through Portainer)
+
 ## Features
 
 - Automatically checks for new rare bird alerts at regular intervals
