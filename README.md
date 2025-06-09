@@ -13,6 +13,11 @@ You can run this application:
 2. Using Docker (see [Docker Setup](DOCKER.md) for container deployment)
 3. On Ubuntu Server (see [Ubuntu Server Setup](UBUNTU.md) for specific instructions)
 4. Using Portainer (see [Portainer Setup](PORTAINER.md) for deployment through Portainer)
+5. For troubleshooting and verification, see the [Verification Guide](VERIFICATION.md)
+
+### Deployment Status
+
+The application has been successfully deployed on a mini PC running Ubuntu Server using Portainer. See the deployment guides for details on how to replicate this setup.
 
 ## Features
 
@@ -139,3 +144,22 @@ This will:
   - Both approaches would require extending `EBirdFetcher.fetch_alerts()` to optionally make these extra requests and including the results in the returned observation dictionary.
 - Additional notification methods (email, push notifications, etc.)
 - User interface for configuration
+
+## Verifying Deployment
+
+To confirm your deployment is working correctly:
+
+1. **Check Container Logs**:
+   - In Portainer: Navigate to Containers > ebird-rba > Logs
+   - Via Docker CLI: `docker logs ebird-rba`
+   - Look for messages like "Checking for new alerts..." which indicates the application is actively running
+
+2. **Verify Notifications**:
+   - If `NOTIFY_ON_STARTUP` is set to `true`, you should receive a notification on startup with any existing alerts
+   - Otherwise, wait for the next rare bird alert or create a test entry in eBird (if you have permissions)
+
+3. **Test Data Persistence**:
+   - After receiving a notification, restart the container
+   - Verify you don't receive duplicate notifications for the same alerts
+
+See the [Verification and Troubleshooting Guide](VERIFICATION.md) for detailed instructions on verifying your deployment and troubleshooting common issues.

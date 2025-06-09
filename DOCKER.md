@@ -5,6 +5,7 @@ This document outlines how to build and run the eBird Rare Bird Alert applicatio
 > **Note:** 
 > - For Ubuntu Server specific instructions, please see [UBUNTU.md](UBUNTU.md)
 > - For Portainer deployment instructions, please see [PORTAINER.md](PORTAINER.md)
+> - For verification and troubleshooting, see [VERIFICATION.md](VERIFICATION.md)
 
 ## Prerequisites
 

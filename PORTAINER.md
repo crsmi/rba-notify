@@ -2,6 +2,9 @@
 
 This guide explains how to deploy the eBird RBA application using Portainer, a web-based Docker management tool, with a focus on configuration and secrets management.
 
+> **Note:**
+> - For verification and troubleshooting after deployment, see [VERIFICATION.md](VERIFICATION.md)
+
 ## Prerequisites
 
 - Portainer installed on your Docker host
@@ -36,7 +39,10 @@ If you prefer not to use a Git repository, you can:
 4. Fill in the form:
    - **Name**: `ebird-rba`
    - **Build method**: Choose one:
-     - **Git repository**: Enter your repository URL
+     - **Git repository**: 
+       - Enter repository URL: `https://github.com/crsmi/rba-notify/` (include the trailing slash)
+       - Leave the branch field empty (this will use the default branch)
+       - Reference name: Can be left empty
      - **Web editor**: Paste the contents of your docker-compose.yml file
    - **Environment variables**: Configure the application settings:
      ```
@@ -126,3 +132,19 @@ docker push your-username/ebird-rba:latest
 2. **Use environment variables for basic configuration** - Simpler to change in Portainer
 3. **Use volumes for persistent data** - Ensures data survives container updates
 4. **Consider using Docker Registry** - Makes deployment across multiple systems easier
+
+## Troubleshooting
+
+### Repository URL Format Issues
+- When deploying from GitHub, ensure the repository URL includes a trailing slash (e.g., `https://github.com/crsmi/rba-notify/`)
+- If you encounter "repository reference is invalid" errors, try leaving the branch field empty to use the default branch
+
+### Container Not Starting
+- Check container logs in Portainer for error messages
+- Verify all required environment variables are set correctly
+- Ensure volumes are properly mounted and accessible
+
+### Notifications Not Working
+- For Discord issues, verify your webhook URL is correctly formatted
+- Check if `ENABLE_DISCORD_NOTIFICATIONS` is set to `true`
+- Check container logs for API connection errors
